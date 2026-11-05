@@ -1,0 +1,22 @@
+consulta: {"estado":"pendiente","prioridad":"alta"}
+índices antes: ["_id_"]
+--- ANTES del índice ---
+plan ganador: COLLSCAN
+nReturned: 2
+totalDocsExamined: 12
+totalKeysExamined: 0
+executionTimeMillis: 0
+createIndex: estado_1_prioridad_1
+índices después: ["_id_","estado_1_prioridad_1"]
+--- DESPUÉS del índice ---
+plan ganador: FETCH > IXSCAN
+nReturned: 2
+totalDocsExamined: 2
+totalKeysExamined: 2
+executionTimeMillis: 1
+--- Comparación ---
+nReturned: 2 -> 2
+totalDocsExamined: 12 -> 2
+totalKeysExamined: 0 -> 2
+tamaño de datos (bytes): 2854
+tamaño de índices (bytes): {"_id_":36864,"estado_1_prioridad_1":20480}

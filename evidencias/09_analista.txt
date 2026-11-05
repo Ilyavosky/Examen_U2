@@ -1,0 +1,22 @@
+usuario autenticado: analista_tienda
+roles: [{"role":"read","db":"comercio_u2"}]
+--- Operación permitida: consulta ---
+pedidos: 12
+{
+  _id: 1,
+  clienteId: 'C01',
+  estado: 'pendiente'
+}
+pedidos pendientes de prioridad alta: [1,7]
+--- Operación rechazada: modificar el pedido 1 ---
+rechazado: si
+code: 8000
+codeName: AtlasError
+mensaje: user is not allowed to do action [update] on [comercio_u2.pedidos]
+--- Operación rechazada: insertar un pedido ---
+rechazado: si
+code: 8000
+mensaje: user is not allowed to do action [insert] on [comercio_u2.pedidos]
+--- Verificación ---
+estado del pedido 1: pendiente (esperado pendiente)
+pedidos: 12 (esperado 12)

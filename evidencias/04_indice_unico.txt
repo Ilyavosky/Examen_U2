@@ -1,0 +1,31 @@
+sku_unico
+índices de productos:
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      sku: 1
+    },
+    name: 'sku_unico',
+    unique: true
+  }
+]
+productos antes: 5
+rechazado: si
+code: 11000
+codeName: DuplicateKey
+mensaje: E11000 duplicate key error collection: comercio_u2.productos index: sku_unico dup key: { sku: "P01" }
+--- Verificación ---
+productos después: 5 (esperado 5)
+documentos con sku P01: 1 (esperado 1)
+existencias: ["P01=8","P02=40","P03=12","P04=50","P05=15"]
+--- Distinción de errores ---
+índice único: code 11000 (DuplicateKey), mensaje 'E11000 duplicate key error', indica la clave repetida (sku).
+validación de esquema: code 121 (DocumentValidationFailed), mensaje 'Document failed validation', trae errInfo.details con la regla incumplida.

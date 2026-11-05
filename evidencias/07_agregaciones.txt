@@ -1,0 +1,49 @@
+=== Pipeline 1: distribución de pedidos por estado ===
+[
+  {
+    _id: 'entregado',
+    pedidos: 4
+  },
+  {
+    _id: 'pendiente',
+    pedidos: 4
+  },
+  {
+    _id: 'enviado',
+    pedidos: 2
+  },
+  {
+    _id: 'preparacion',
+    pedidos: 2
+  }
+]
+esperado: {"pendiente":4,"preparacion":2,"enviado":2,"entregado":4}
+obtenido: {"entregado":4,"pendiente":4,"enviado":2,"preparacion":2}
+coincide: true
+=== Pipeline 2: por almacén, pedidos, importe y unidades ===
+[
+  {
+    _id: 'Norte',
+    importe: 35400,
+    unidades: 5,
+    pedidos: 4
+  },
+  {
+    _id: 'Sur',
+    importe: 12800,
+    unidades: 4,
+    pedidos: 3
+  },
+  {
+    _id: 'Centro',
+    importe: 4700,
+    unidades: 11,
+    pedidos: 5
+  }
+]
+esperado: [{"_id":"Norte","pedidos":4,"importe":35400,"unidades":5},{"_id":"Sur","pedidos":3,"importe":12800,"unidades":4},{"_id":"Centro","pedidos":5,"importe":4700,"unidades":11}]
+obtenido: [{"_id":"Norte","importe":35400,"unidades":5,"pedidos":4},{"_id":"Sur","importe":12800,"unidades":4,"pedidos":3},{"_id":"Centro","importe":4700,"unidades":11,"pedidos":5}]
+coincide: true
+almacén con mayor ingreso: Norte (35400 MXN)
+almacén con más unidades: Centro (11 unidades)
+importe acumulado total: 52900 (esperado 52900)

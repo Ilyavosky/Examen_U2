@@ -1,0 +1,37 @@
+=== Ítem 8: actualización condicionada del pedido 1 ===
+estado inicial del pedido 1: pendiente
+1er intento pendiente -> preparacion (esperado 1/1): matchedCount=1, modifiedCount=1
+estado actual: preparacion
+2o intento con el mismo filtro (esperado 0/0): matchedCount=0, modifiedCount=0
+estado actual: preparacion
+restitución preparacion -> pendiente (esperado 1/1): matchedCount=1, modifiedCount=1
+estado final: pendiente (esperado pendiente)
+--- Reserva de una unidad de P01 ---
+existencias iniciales P01: 8
+reserva imposible de 100 unidades (esperado 0/0): matchedCount=0, modifiedCount=0
+existencias P01: 8 (esperado 8)
+reserva de 1 unidad (esperado 1/1): matchedCount=1, modifiedCount=1
+existencias P01: 7 (esperado 7)
+reposición de 1 unidad (esperado 1/1): matchedCount=1, modifiedCount=1
+existencias P01: 8 (esperado 8)
+=== Ítem 9: etiquetas con $addToSet y $pull en el pedido 3 ===
+etiquetas iniciales: ["web","alta"]
+1er $addToSet 'revision' (esperado 1/1): matchedCount=1, modifiedCount=1
+etiquetas: ["web","alta","revision"]
+2o $addToSet 'revision' (esperado 1/0, no duplica): matchedCount=1, modifiedCount=0
+etiquetas: ["web","alta","revision"]
+$pull 'revision' (esperado 1/1): matchedCount=1, modifiedCount=1
+etiquetas finales: ["web","alta"] (esperado ["web","alta"])
+--- Pedido temporal _id 99 ---
+inserción aceptada: true
+pedidos con el temporal: 13 (esperado 13)
+deletedCount: 1 (esperado 1)
+=== Verificación final ===
+pedidos: 12 (esperado 12)
+ids: [1,2,3,4,5,6,7,8,9,10,11,12]
+ids correctos 1..12: true
+existe _id 99: false (esperado false)
+productos: 5 (esperado 5)
+existencias: ["P01=8","P02=40","P03=12","P04=50","P05=15"]
+existencias iniciales: true
+estado del pedido 1: pendiente (esperado pendiente)

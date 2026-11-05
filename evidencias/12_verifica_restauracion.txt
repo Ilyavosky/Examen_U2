@@ -1,0 +1,21 @@
+=== Comparación origen (comercio_u2) vs restaurada (comercio_u2_restaurada) ===
+pedidos (conteo)                   | 12                                 | 12                                 | SI
+productos (conteo)                 | 5                                  | 5                                  | SI
+pedido 1 idéntico                  | true                               | true                               | SI
+pedido 7 idéntico                  | true                               | true                               | SI
+pedido 12 idéntico                 | true                               | true                               | SI
+pedidos distintos entre bases      | 0                                  | 0                                  | SI
+productos distintos entre bases    | 0                                  | 0                                  | SI
+índices de pedidos                 | _id_,estado_1_prioridad_1          | _id_,estado_1_prioridad_1          | SI
+índices de productos               | _id_,sku_unico(unico)              | _id_,sku_unico(unico)              | SI
+validador de pedidos               | presente                           | presente                           | SI
+validationLevel / Action           | strict/error                       | strict/error                       | SI
+filas que no coinciden: 0 (esperado 0)
+=== El validador y el índice único funcionan en la base restaurada ===
+cantidad 0 en la restaurada -> rechazado, code 121
+SKU duplicado en la restaurada -> rechazado, code 11000
+=== El origen no cambió ===
+pedidos origen: 12 (esperado 12)
+productos origen: 5 (esperado 5)
+pedidos restaurada: 12 (esperado 12)
+productos restaurada: 5 (esperado 5)

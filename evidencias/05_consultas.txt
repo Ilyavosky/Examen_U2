@@ -1,0 +1,145 @@
+--- a) pendientes de prioridad alta (ID y cliente) ---
+esperado: [1,7]
+obtenido: [1,7]
+coincide: true
+[
+  {
+    _id: 1,
+    clienteId: 'C01'
+  },
+  {
+    _id: 7,
+    clienteId: 'C03'
+  }
+]
+--- b) pedidos del almacén Centro ordenados por ID ---
+esperado: [2,4,6,8,11]
+obtenido: [2,4,6,8,11]
+coincide: true
+[
+  {
+    _id: 2,
+    almacen: 'Centro',
+    estado: 'preparacion'
+  },
+  {
+    _id: 4,
+    almacen: 'Centro',
+    estado: 'pendiente'
+  },
+  {
+    _id: 6,
+    almacen: 'Centro',
+    estado: 'entregado'
+  },
+  {
+    _id: 8,
+    almacen: 'Centro',
+    estado: 'pendiente'
+  },
+  {
+    _id: 11,
+    almacen: 'Centro',
+    estado: 'entregado'
+  }
+]
+--- c) pedidos con total >= 3000 (ID e importe) ---
+esperado: [1,3,5,7,9,12]
+obtenido: [1,3,5,7,9,12]
+coincide: true
+[
+  {
+    _id: 1,
+    total: 15000
+  },
+  {
+    _id: 3,
+    total: 3200
+  },
+  {
+    _id: 5,
+    total: 3600
+  },
+  {
+    _id: 7,
+    total: 6400
+  },
+  {
+    _id: 9,
+    total: 15000
+  },
+  {
+    _id: 12,
+    total: 3200
+  }
+]
+--- d) pedidos del 17 al 19 de octubre, inclusive ---
+esperado: [5,6,7,8,9,10]
+obtenido: [5,6,7,8,9,10]
+coincide: true
+[
+  {
+    _id: 5,
+    fecha: ISODate('2026-10-17T12:00:00.000Z')
+  },
+  {
+    _id: 6,
+    fecha: ISODate('2026-10-17T12:00:00.000Z')
+  },
+  {
+    _id: 7,
+    fecha: ISODate('2026-10-18T12:00:00.000Z')
+  },
+  {
+    _id: 8,
+    fecha: ISODate('2026-10-18T12:00:00.000Z')
+  },
+  {
+    _id: 9,
+    fecha: ISODate('2026-10-19T12:00:00.000Z')
+  },
+  {
+    _id: 10,
+    fecha: ISODate('2026-10-19T12:00:00.000Z')
+  }
+]
+--- e) pedidos que contienen el SKU P03 ---
+esperado: [3,7,12]
+obtenido: [3,7,12]
+coincide: true
+[
+  {
+    _id: 3,
+    articulos: [
+      {
+        sku: 'P03',
+        cantidad: 1,
+        precioUnitario: 3200
+      }
+    ]
+  },
+  {
+    _id: 7,
+    articulos: [
+      {
+        sku: 'P03',
+        cantidad: 2,
+        precioUnitario: 3200
+      }
+    ]
+  },
+  {
+    _id: 12,
+    articulos: [
+      {
+        sku: 'P03',
+        cantidad: 1,
+        precioUnitario: 3200
+      }
+    ]
+  }
+]
+--- f) número de pedidos entregados ---
+esperado: 4
+obtenido: 4
+coincide: true

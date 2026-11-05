@@ -1,0 +1,16 @@
+{
+  ok: 1,
+  '$clusterTime': {
+    clusterTime: Timestamp({ t: 1793879254, i: 1 }),
+    signature: {
+      hash: Binary.createFromBase64('XWV5gP5YdQgCocM5E6Wk3skrkU8=', 0),
+      keyId: Long('7660605842122604545')
+    }
+  },
+  operationTime: Timestamp({ t: 1793879254, i: 1 })
+}
+validationLevel: strict
+validationAction: error
+validador presente: si
+pedidos que incumplen el esquema: 0 (esperado 0)
+pedidos totales: 12 (esperado 12)

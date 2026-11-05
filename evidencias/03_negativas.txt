@@ -1,0 +1,87 @@
+pedidos antes: 12
+--- Prueba: cantidad cero ---
+regla esperada: articulos.cantidad debe ser entero con minimum 1
+rechazado: si
+code: 121
+codeName: DocumentValidationFailed
+mensaje: Document failed validation
+detalle de la regla incumplida:
+{
+  operatorName: '$jsonSchema',
+  schemaRulesNotSatisfied: [
+    {
+      operatorName: 'properties',
+      propertiesNotSatisfied: [
+        {
+          propertyName: 'articulos',
+          details: [
+            {
+              operatorName: 'items',
+              reason: 'At least one item did not match the sub-schema',
+              itemIndex: 0,
+              details: [
+                {
+                  operatorName: 'properties',
+                  propertiesNotSatisfied: [
+                    {
+                      propertyName: 'cantidad',
+                      details: [
+                        {
+                          operatorName: 'minimum',
+                          specifiedAs: {
+                            minimum: 1
+                          },
+                          reason: 'comparison failed',
+                          consideredValue: 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+--- Prueba: estado no admitido ---
+regla esperada: estado debe pertenecer a [pendiente, preparacion, enviado, entregado]
+rechazado: si
+code: 121
+codeName: DocumentValidationFailed
+mensaje: Document failed validation
+detalle de la regla incumplida:
+{
+  operatorName: '$jsonSchema',
+  schemaRulesNotSatisfied: [
+    {
+      operatorName: 'properties',
+      propertiesNotSatisfied: [
+        {
+          propertyName: 'estado',
+          details: [
+            {
+              operatorName: 'enum',
+              specifiedAs: {
+                enum: [
+                  'pendiente',
+                  'preparacion',
+                  'enviado',
+                  'entregado'
+                ]
+              },
+              reason: 'value was not found in enum',
+              consideredValue: 'cancelado'
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+--- Verificación ---
+pedidos después: 12 (esperado 12)
+pedidos con _id 100 o 101: 0 (esperado 0)
+pedidos que incumplen el esquema: 0 (esperado 0)

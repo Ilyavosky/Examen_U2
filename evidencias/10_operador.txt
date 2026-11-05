@@ -1,0 +1,16 @@
+usuario autenticado: operador_tienda
+roles: [{"role":"readWrite","db":"comercio_u2"}]
+--- Operación permitida: actualizar y restituir el pedido 1 ---
+estado inicial: pendiente
+pendiente -> preparacion (esperado 1/1): matchedCount=1, modifiedCount=1
+estado actual: preparacion
+preparacion -> pendiente (esperado 1/1): matchedCount=1, modifiedCount=1
+estado final: pendiente (esperado pendiente)
+--- Operación rechazada: escribir en otra_base_tienda ---
+rechazado: si
+code: 8000
+codeName: AtlasError
+mensaje: user is not allowed to do action [insert] on [otra_base_tienda.prueba]
+--- Verificación ---
+pedidos: 12 (esperado 12)
+estado del pedido 1: pendiente (esperado pendiente)

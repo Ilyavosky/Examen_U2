@@ -1,0 +1,16 @@
+Base activa: comercio_u2
+{
+  ok: 1
+}
+Las colecciones ya contienen datos. Se omite la carga y solo se verifica.
+--- Verificación ---
+productos: 5 (esperado 5)
+pedidos: 12 (esperado 12)
+fechas tipo date: 12 (esperado 12)
+con responsable: [2,5,10] (esperado [2,5,10])
+totales guardados:  [15000,1000,3200,900,3600,2000,6400,300,15000,1800,500,3200]
+totales esperados:  [15000,1000,3200,900,3600,2000,6400,300,15000,1800,500,3200]
+coinciden: true
+pedidos con total distinto a cantidad x precio: 0 (esperado 0)
+suma global: 52900 (esperado 52900)
+pedidos con almacén distinto al del producto: 0 (esperado 0)
